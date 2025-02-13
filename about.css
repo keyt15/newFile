@@ -1,0 +1,32 @@
+a{
+    margin-top: 20px;
+    text-align: center;
+     color:#000000;
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+a:hover{
+    color: aliceblue;
+}
+a:focus{
+    
+}
+body{
+    background-color: #3674B5;
+    margin-left: 50px;
+    margin-top: 50px;
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif+
+}
+footer{
+    color: #000000;
+    margin-top: 90px;
+}
+img{
+    margin-top: 30px;
+    width: 95px;
+}
+hr{
+    color: coral;
+    margin-top: 10px;
+    margin-bottom: 70px;
+}
