@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A heartfelt Valentine's Day experience">
+    <title>For My Favorite Person ❤️</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@500;700&family=Great+Vibes&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="entry-gate" class="gate-overlay" role="dialog" aria-label="Entry invitation">
+        <div class="gate-content">
+            <button class="wax-seal" onclick="unlockInvitation()" aria-label="Open invitation">
+                <div class="seal-inner">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </button>
+            <h2 class="gate-text">A Private Invitation Just For You</h2>
+            <p class="gate-subtext">Tap the seal to open</p>
+        </div>
+    </div>
+
+    <div id="greeting-screen" class="greeting-overlay hidden" role="dialog" aria-label="Valentine's greeting">
+        <h1 class="greeting-text">Happy Valentine's Day, Lover! ❤️</h1>
+        <div class="floating-hearts" aria-hidden="true">
+            <span class="heart">❤️</span>
+            <span class="heart">💕</span>
+            <span class="heart">💖</span>
+        </div>
+    </div>
+
+    <div id="main-content" class="content-hidden">
+        <canvas id="particle-canvas" aria-hidden="true"></canvas>
+        
+        <button class="music-toggle" id="musicToggle" aria-label="Toggle background music">
+            <i class="fas fa-music"></i>
+        </button>
+        
+        <audio id="bgMusic" loop preload="auto">
+            <source src="imgs/d4vd - Here With Me Official Music Video.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="container">
+            <header class="main-header">
+                <h2 class="elegance-title">Important Moments That Happened to Us✨</h2>
+            </header>
+
+            <section class="memory-grid" aria-label="Our memories">
+                <article class="memory-box" onclick="openModal('modal1')" tabindex="0" role="button">
+                    <div class="box-icon">🧩</div>
+                    <h3>27, 6</h3>
+                    <p class="click-hint">Click to see more</p>
+                </article>
+
+                <article class="memory-box" onclick="openModal('modal2')" tabindex="0" role="button">
+                    <div class="box-icon">✨</div>
+                    <h3>When The Night Stars Aligned</h3>
+                    <p class="click-hint">Click to see more</p>
+                </article>
+
+                <article class="memory-box" onclick="openModal('modal3')" tabindex="0" role="button">
+                    <div class="box-icon">❤️</div>
+                    <h3>Here With Me</h3>
+                    <p class="click-hint">Click to see more</p>
+                </article>
+            </section>
+
+            <div id="modal1" class="memory-modal" onclick="closeModalOnBackground(event, 'modal1')">
+                <div class="modal-content">
+                    <button class="close-x" onclick="closeModal('modal1')">&times;</button>
+                    <div class="modal-image-container">
+                        <img src="imgs/image1.jpg" alt="Memory 1">
+                    </div>
+                    <div class="modal-text">
+                        <h3>27, 6 Letters💖</h3>
+                        <p>I remember nung grade 11 tayo, the way you were always giving me number hints about your crush—27 and 6. 
+                            I wasn't actually aware na it was me, the one na tinutukoy mo AHAHAH. The time na bumisita ako sa room niyo, you suddenly played Dandelion on the guitar,
+                            which was my favorite song at that time and is still my favorite until now because of you. Then I realized that the number 27 was the bilang ng letters ng full name ko,
+                            and the 6 was the bilang ng letters ng nickname ko. Doon ko lang talaga na-gets lahat, and I couldn't stop smiling because it felt so genuine and sweet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal2" class="memory-modal" onclick="closeModalOnBackground(event, 'modal2')">
+                <div class="modal-content">
+                    <button class="close-x" onclick="closeModal('modal2')">&times;</button>
+                    <div class="modal-image-container">
+                        <img src="imgs/image2.jpg" alt="Memory 2">
+                    </div>
+                    <div class="modal-text">
+                        <h3>"Same"🫂</h3>
+                        <p>September 2022 when we started talking about random stuff, like you were slowly getting to know me. That's when I started to get confused about my own feelings.
+                             Every night, I couldn't sleep, thinking about what I really felt for you, hanggang umabot ng one month before I finally confirmed my feelings AHAHAHAH.
+                            November 4: This was the night when you told me that you loved me and that you had feelings for me, pero ayon… AHAHAH. That night,
+                            we agreed na walang awkwardness na mangyayari sa school after mong umamin—which, I think, was already happening even before you confessed,
+                            since aware na rin naman ako sa feelings mo sa'kin, AHAHAHAH. November 5: dito na rin ako nag-confess kasi I don't think kaya ko pang patagalin.
+                            My heart was racing, my hands were shaking, but I knew I had to tell you. And the moment I did… everything felt right. Parang all the waiting, all the confusion,
+                            all the late-night thoughts—suddenly became worth it.
+                            From that day, things just felt different, in the best way possible. You are the greatest plot twist of my 2022.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal3" class="memory-modal" onclick="closeModalOnBackground(event, 'modal3')">
+                <div class="modal-content">
+                    <button class="close-x" onclick="closeModal('modal3')">&times;</button>
+                    <div class="modal-image-container">
+                        <img src="imgs/image3.jpg" alt="Memory 3">
+                    </div>
+                    <div class="modal-text">
+                        <h3>Forever Us💖</h3>
+                        <p>Happy Valentine's to us, again! Cheers to our 4th Valentine's together 🥂 More away moments and misunderstandings to come, AHAHAHA, 
+                        but I hope you never get tired of us. May all our plans for the future be achieved, step by step. I love you always, my engineer! 💘</p>
+                        <p class="modal-ps">PS: I'm writing this while listening to Blue and Here With Me—made me think of you even more. 💘</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="gallery-section">
+                <h2 class="section-subtitle">Captured Moments</h2>
+                <div class="photo-frame-container">
+                    <div class="photo-frame" style="--r: -3deg"><img src="imgs/image4.jpg" alt="Us"></div>
+                    <div class="photo-frame" style="--r: 2deg"><img src="imgs/image5.jpg" alt="Us"></div>
+                    <div class="photo-frame" style="--r: -1deg"><img src="imgs/image6.jpg" alt="Us"></div>
+                </div>
+            </section>
+
+            <div class="wish-outer-wrapper">
+                <section class="wish-section" id="wishSection">
+                    <div class="wish-glass-card">
+                        <h2 class="section-subtitle">🌠 Make a Wish</h2>
+                        <div class="wish-container">
+                            <p class="wish-instruction" id="wishText">Make a wish before you answer...</p>
+                            <div class="star-wrapper">
+                                <div class="floating-star" id="wishStar" onclick="makeAWish()" role="button" tabindex="0">
+                                    <i class="fas fa-star"></i>
+                                    <div class="star-glow"></div>
+                                </div>
+                            </div>
+                            <p id="wishMsg" class="wish-message">I hope your wish comes true... ❤️</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="invitation-wrap" id="invitationWrap">
+                <div class="invite-card" id="inviteCard" role="button" aria-label="Valentine Invitation">
+                    
+                    <div class="card-front">
+                        <div class="card-border-frame">
+                            <div class="ornament top">✦</div>
+                            <div class="invite-content">
+                                <h2 class="cinzel gold-shimmer">BE MY VALENTINE🌸</h2>
+                                <div class="date-display">
+                                    <div class="line"></div>
+                                    <div class="date-text">
+                                        <span class="month">FEBRUARY</span>
+                                        <span class="day">14</span>
+                                        <span class="year">2026</span>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+                                <p class="tagline">I love you more than yesterday and less than tomorrow 💖</p>
+                            </div>
+                            <div class="ornament bottom">✦</div>
+                            <span class="tap-hint">Tap for a Special Invite 🥰</span>
+                        </div>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="card-border-frame">
+                            <h2 class="dancing gold-shimmer">Be my Valentine?</h2>
+                            <p class="personal-note">
+                                In all the world, there is no heart for me like yours. 
+                                In all the world, there is no love for you like mine.💗
+                            </p>
+                            
+                            <div class="btn-group">
+                                <button class="btn yes" onclick="sayYes(event)">
+                                    <span>Yes!</span> <i class="fas fa-heart"></i>
+                                </button>
+                                <button id="noBtn" class="btn no" onmouseover="moveNoButton()">No</button>
+                            </div>
+
+                            <div id="dateChoices" class="date-choices hidden">
+                                <p class="choice-title">Where are we going? 💕</p>
+                                <div class="choices">
+                                    <button class="choice-btn" onclick="chooseDate('dinner')">🍝 Fancy Dinner</button>
+                                    <button class="choice-btn" onclick="chooseDate('chill')">🍜 Ramen Date</button>
+                                    <button class="choice-btn" onclick="chooseDate('walk')">🏠 Stay Home Chill</button>
+                                </div>
+                                <p id="dateMessage" class="date-message"></p>
+                                
+                                <button class="seal-btn" id="sealBtn" onclick="sealWithKiss()">
+                                    <i class="fas fa-kiss-wink-heart"></i> Kiss to Seal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <p>Made with <span class="pulse-heart">❤️</span> for my favorite person</p>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
